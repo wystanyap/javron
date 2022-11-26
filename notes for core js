@@ -1,0 +1,139 @@
+var abdul = {
+    javar:1
+}
+
+var obj = {
+    name:'apollo'
+}
+
+obj.name;
+obj['name'];
+obj.javar;
+
+//use objects to create
+
+var obj = Object.create(abdul);
+
+obj.name;
+obj.javar;
+
+
+//function expression
+
+var x = function() {
+    console.log(i);
+}
+
+// function declaration
+
+function(){
+    console.log(i);
+}
+
+// higher order functions
+
+function foo(){
+    console.log('obob');
+}
+
+function baz(fn){
+    fn();
+}
+
+baz(foo);
+
+//asyncronous 1
+setTimeout(function(){
+    x-2;
+    console.log(x);
+
+    setTimeout(function(){
+        x=3;
+        console.log(x);
+    },1000)
+},2000)
+
+console.log(x);
+
+// cleaner async
+
+var x = 1;
+function pangako1(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            x=2;
+            console.log(2);
+            resolve();
+        })
+    })
+}
+
+function pangako2(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            x=3;
+            console.log(x);
+            resolve();
+        })
+    });
+}
+
+pangako1()
+.then(pangako2)
+
+console.log(x);
+
+
+
+// Async await
+
+//clean way
+
+var x = 1;
+function pangako1(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            x = 2;
+            resolve(x);
+        })
+    })
+}
+
+function pangako2(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            x = 3;
+            resolve(x);
+        })
+    })
+}
+
+async function asyncCall(){
+    const p1 = await pangako1();
+    console.log(p1);
+    const p2 = await pangako2();
+    console.log(p2);
+    //expected output "resolved"
+}
+
+asyncCall();
+console.log('javron');
+
+// asyncronous
+var x = 1;
+setTimeout(function(){
+    console.log(x+3);
+},0)
+
+setTimeout(function(){
+    console.log(x+2);
+},0)
+
+console.log(x);
+
+
+
+
+
+
+
