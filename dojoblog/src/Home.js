@@ -1,18 +1,26 @@
+import { useState } from "react";
+
 const Home = () => {
 
-    const handleClick = (e) => {
-        console.log('Hello, Javron')
+   // let name = 'tope';
+   const [name, setName] = useState('tope');
+   const [age, setAge] = useState(69);
+   const [random, setRandom] = useState([4,8,12,15])
+
+    const handleClick = () => {
+        setName('koy');
+        setAge(42);
+        setRandom([22,44,33])
     }
 
-    const clickAgain = (name, e) => {
-        console.log('Hello' + name, e.target);
-    }
 
     return ( 
         <div className="home">
             <h2>Homepage</h2>
+            <p>{name}</p>
+            <p>{age}</p>
+            <p>{random}</p>
             <button onClick={handleClick}>Click Me</button>
-            <button onClick={(e) => {clickAgain('jabol',e);}}>Click Again</button>
         </div>
      );
 }
