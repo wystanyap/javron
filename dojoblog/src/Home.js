@@ -1,27 +1,19 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 
 const Home = () => {
 
-   // let name = 'tope';
-   const [name, setName] = useState('tope');
-   const [age, setAge] = useState(69);
-   const [random, setRandom] = useState([4,8,12,15])
-
-    const handleClick = () => {
-        setName('koy');
-        setAge(42);
-        setRandom([22,44,33])
-    }
+    const [blogs,setBlogs] = useState([
+        {title:'My new Website', body:'lorem ipsum...', author:'tope', id: 1},
+        {title:'Henlo Negima', body:'lorem ipsum...', author:'koy', id: 2},
+        {title:'Tips for beniggers', body:'lorem ipsum...', author:'wil', id: 3}
+    ]);
 
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name}</p>
-            <p>{age}</p>
-            <p>{random}</p>
-            <button onClick={handleClick}>Click Me</button>
-        </div>
+            <BlogList blogs={blogs} title="All Blogs!" />
+        </div>  
      );
 }
  
